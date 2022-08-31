@@ -1,25 +1,27 @@
-import Logo from "./Logo";
 import { MoonStars, Sun, User } from "phosphor-react";
 import { useState } from "react";
 import Link from "next/link";
+import logoPNG from "../../public/logo.png";
+import Image from "next/image";
 
 export default function Header() {
   const [themeDark, setThemeDark] = useState(false);
   const [user, setUser] = useState("Alexandre");
   const [toggleMenuUser, setToggleMenuUser] = useState(false);
 
-  function Disconnected() {
+  function disconnected() {
     setUser("");
     console.log("Desconectado");
   }
 
   return (
-    <header className="flex justify-center items-center relative p-6 shadow">
-      <Logo />
-      <div className="absolute right-8 flex items-center gap-8 text-[#007FFE]">
+    <header className="flex justify-between sm:justify-center items-center relative p-4 shadow border-b-2 bg-white border-zinc-100 z-10">
+      <Image layout="intrinsic" src={logoPNG} alt="Logo" />
+
+      <div className="relative sm:absolute right-0 pl-2 sm:right-8 flex items-center sm:gap-8 gap-4 text-[#007FFE]">
         <button
           onClick={() => setThemeDark(!themeDark)}
-          className="p-1 bg-zinc-100 rounded-full hover:scale-[1.2] transition-all shadow hover:shadow-md"
+          className="p-1 bg-zinc-100 rounded-full hover:scale-[1.1] transition-all shadow hover:shadow-md"
         >
           {themeDark ? <Sun size={24} /> : <MoonStars size={24} />}
         </button>
@@ -30,7 +32,7 @@ export default function Header() {
               onClick={() => setToggleMenuUser(!toggleMenuUser)}
               className="p-1 bg-zinc-100 rounded-full shadow hover:shadow-md"
             >
-              <div className="hover:scale-[1.2] transition-all">
+              <div className="hover:scale-[1.1] transition-all">
                 {/*{ user.photo ? <img src={user.photo}> :  }*/}
                 <User size={28} />
               </div>
@@ -42,16 +44,14 @@ export default function Header() {
                     <a>Perfil</a>
                   </Link>
                 </li>
-                <li className="flex-1 border">
+                <li className="flex-1">
                   <Link href="/">
                     <a>Configurações</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>
-                      <button onClick={() => Disconnected()}>Sair</button>
-                    </a>
+                    <button onClick={() => disconnected()}>Sair</button>
                   </Link>
                 </li>
               </ul>
