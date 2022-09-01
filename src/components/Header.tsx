@@ -1,13 +1,21 @@
 import { MoonStars, Sun, User } from "phosphor-react";
 import { useState } from "react";
 import Link from "next/link";
+// import Logo from "./Logo";
+// import LogoP from "./LogoP";
 import logoPNG from "../../public/logo.png";
+import logoPNG_P from "../../public/logoP.png";
 import Image from "next/image";
 
 export default function Header() {
   const [themeDark, setThemeDark] = useState(false);
   const [user, setUser] = useState("Alexandre");
   const [toggleMenuUser, setToggleMenuUser] = useState(false);
+
+  const isBrowser = () => typeof window !== "undefined";
+  const isMinScreen = isBrowser()
+    ? window.matchMedia("(min-width: 640px)").matches
+    : true;
 
   function disconnected() {
     setUser("");
@@ -16,12 +24,16 @@ export default function Header() {
 
   return (
     <header className="flex justify-between sm:justify-center items-center relative p-4 shadow border-b-2 bg-white border-zinc-100 z-10">
-      <Image layout="intrinsic" src={logoPNG} alt="Logo" />
+      {/* {isMinScreen ? <Logo /> : <LogoP />} */}
 
-      <div className="relative sm:absolute right-0 pl-2 sm:right-8 flex items-center sm:gap-8 gap-4 text-[#007FFE]">
+      <Image src={isMinScreen ? logoPNG : logoPNG_P} alt="Logo" />
+
+      <div className="relative sm:absolute right-0 sm:right-8 flex items-center sm:gap-8 gap-4 sm:pl-0 pl-2 text-[#007FFE]">
         <button
           onClick={() => setThemeDark(!themeDark)}
-          className="p-1 bg-zinc-100 rounded-full hover:scale-[1.1] transition-all shadow hover:shadow-md"
+          className="p-1 bg-zinc-100 shadow rounded-full hover:scale-110 hover:shadow-md
+          focus:scale-110
+          focus:outline-zinc-300 transition-colors"
         >
           {themeDark ? <Sun size={24} /> : <MoonStars size={24} />}
         </button>
@@ -30,7 +42,9 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setToggleMenuUser(!toggleMenuUser)}
-              className="p-1 bg-zinc-100 rounded-full shadow hover:shadow-md"
+              className="p-1 bg-zinc-100 shadow rounded-full hover:scale-110 hover:shadow-md
+              focus:scale-110
+              focus:outline-zinc-300 transition-colors"
             >
               <div className="hover:scale-[1.1] transition-all">
                 {/*{ user.photo ? <img src={user.photo}> :  }*/}
