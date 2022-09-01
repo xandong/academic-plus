@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface IInputProps {
+  id?: string;
   type: string;
   label: string;
   value: string;
@@ -11,21 +12,24 @@ interface IInputProps {
 
 export default function Input({
   type,
+  id = type,
   label,
   value,
   setValue,
   messageError,
   required = true,
 }: IInputProps) {
+  console.log(id);
+
   return (
     <fieldset className="flex flex-col group">
-      <label htmlFor={type} className="font-medium">
+      <label htmlFor={id} className="font-medium">
         {label}
       </label>
 
       <input
-        id={type}
-        name={type}
+        id={id}
+        name={id}
         type={type}
         value={value}
         onChange={(e) => setValue(e.target.value)}
