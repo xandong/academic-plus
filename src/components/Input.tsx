@@ -23,7 +23,7 @@ export default function Input({
 
   return (
     <fieldset className="flex flex-col group">
-      <label htmlFor={id} className="font-medium">
+      <label htmlFor={id} className="text-zinc-900 font-medium">
         {label}
       </label>
 
