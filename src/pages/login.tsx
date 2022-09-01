@@ -6,13 +6,12 @@ import Link from "next/link";
 import digital from "../../public/DigitalAndPerson.png";
 import Image from "next/image";
 import Input from "../components/Input";
+import Button from "../components/Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const isMinScreen = false;
-
-  console.log({ email, password });
 
   function handleSubmit() {
     return console.log("Enviado");
@@ -63,15 +62,9 @@ export default function Login() {
             value={password}
             setValue={setPassword}
           />
-          <button
-            onClick={() => handleSubmit}
-            className="px-6 py-2 bg-success-default hover:bg-success-hover text-white font-medium rounded transition-colors
-            focus:bg-success-hover
-            focus:outline-success-default
-            focus:outline-2"
-          >
-            Entrar
-          </button>
+
+          <Button text="Entrar" type="submit" />
+
           <small className="text-right text-sm font-medium text-primary-500">
             Esqueceu a senha?
             <Link href="/">
