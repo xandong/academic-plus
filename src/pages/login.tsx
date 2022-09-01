@@ -5,10 +5,14 @@ import Link from "next/link";
 
 import digital from "../../public/DigitalAndPerson.png";
 import Image from "next/image";
+import Input from "../components/Input";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const isMinScreen = false;
+
+  console.log({ email, password });
 
   function handleSubmit() {
     return console.log("Enviado");
@@ -20,10 +24,20 @@ export default function Login() {
         <title>Entre no A+ 📘</title>
       </Head>
       <Header />
-      <main className="py-10 md:px-40 sm:px-8 flex justify-center sm:justify-end items-center gap-10 bg-white relative">
-        <div className="">
-          <Image src={digital} alt="Uma digital e uma pessoa" />
-        </div>
+      <main className="py-10 md:px-40 sm:px-8 flex justify-center sm:justify-end sm:flex-row flex-col items-center gap-10 bg-white relative">
+        {isMinScreen ? (
+          <div className="">
+            <Image
+              className="bg-cover"
+              src={digital}
+              height="400px"
+              layout="intrinsic"
+              alt="Uma digital e uma pessoa"
+            />
+          </div>
+        ) : (
+          ""
+        )}
 
         <form
           onSubmit={handleSubmit}
@@ -35,53 +49,41 @@ export default function Login() {
             Login
           </h1>
 
-          <fieldset className="flex flex-col">
-            <label htmlFor="email" className="font-medium">
-              Email
-            </label>
-
-            <input
-              className="p-2 rounded bg-zinc-50 border-b-2 border-zinc-200 max-w-full"
-              id="email"
-              type="email"
-              name="email"
-              autoComplete="email"
-              placeholder="email@mail.com"
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-
-            <span className="text-cancel-hover text-sm font-medium">Error</span>
-          </fieldset>
-
-          <fieldset className="flex flex-col">
-            <label htmlFor="password" className="font-medium">
-              Senha
-            </label>
-
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="p-2 rounded bg-zinc-50 border-b-2 border-zinc-200"
-            />
-
-            <span className="text-cancel-hover text-sm font-medium">Error</span>
-          </fieldset>
-
+          <Input
+            key="email"
+            type="email"
+            label="Email"
+            value={email}
+            setValue={setEmail}
+          />
+          <Input
+            key="password"
+            type="password"
+            label="Senha"
+            value={password}
+            setValue={setPassword}
+          />
           <button
             onClick={() => handleSubmit}
-            className="px-6 py-2 bg-success-default hover:bg-success-hover text-white font-medium rounded transition-colors"
+            className="px-6 py-2 bg-success-default hover:bg-success-hover text-white font-medium rounded transition-colors
+            focus:bg-success-hover
+            focus:outline-success-default
+            focus:outline-2"
           >
             Entrar
           </button>
           <small className="text-right text-sm font-medium text-primary-500">
             Esqueceu a senha?
             <Link href="/">
-              <a className="hover:text-primary-600"> Clique aqui</a>
+              <a
+                className="hover:text-primary-600 focus:outline-none
+              focus:text-primary-600  transition    
+              focus:border-b-2
+              focus:border-b-primary-600"
+              >
+                {" "}
+                Clique aqui
+              </a>
             </Link>
           </small>
         </form>
