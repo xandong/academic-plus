@@ -20,6 +20,13 @@ export default function Header() {
   }
 
   return (
+    /* .card {
+    backdrop-filter: blur(16px) saturate(149%);
+    -webkit-backdrop-filter: blur(16px) saturate(149%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+} */
     <header className="flex justify-between sm:justify-center items-center relative p-4 shadow border-b-2 bg-white border-zinc-100 z-10">
       {/* {isMinScreen ? <Logo /> : <LogoP />} */}
       {/* <Image src={isMinScreen ? logoPNG : logoPNG_P} alt="Logo" /> */}
@@ -42,7 +49,7 @@ export default function Header() {
               focus:scale-110
               focus:outline-zinc-300 transition-colors"
             >
-              <div className="hover:scale-[1.1] transition-all">
+              <div className="hover:scale-110 transition-all">
                 {/*{ user.photo ? <img src={user.photo}> :  }*/}
                 <User size={28} />
               </div>
