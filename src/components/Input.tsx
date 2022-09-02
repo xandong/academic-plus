@@ -19,8 +19,6 @@ export default function Input({
   messageError,
   required = true,
 }: IInputProps) {
-  console.log(id);
-
   return (
     <fieldset className="flex flex-col group">
       <label htmlFor={id} className="text-zinc-900 font-medium">
