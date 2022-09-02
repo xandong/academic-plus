@@ -1,10 +1,7 @@
 import { MoonStars, Sun, User } from "phosphor-react";
 import { useState } from "react";
 import Link from "next/link";
-// import Logo from "./Logo";
-// import LogoP from "./LogoP";
 import logoPNG from "../../public/logo.png";
-import logoPNG_P from "../../public/logoP.png";
 import Image from "next/image";
 
 export default function Header() {
@@ -25,9 +22,8 @@ export default function Header() {
   return (
     <header className="flex justify-between sm:justify-center items-center relative p-4 shadow border-b-2 bg-white border-zinc-100 z-10">
       {/* {isMinScreen ? <Logo /> : <LogoP />} */}
-
-      <Image src={isMinScreen ? logoPNG : logoPNG_P} alt="Logo" />
-
+      {/* <Image src={isMinScreen ? logoPNG : logoPNG_P} alt="Logo" /> */}
+      <Image src={logoPNG} alt="Academic Plus" />
       <div className="relative sm:absolute right-0 sm:right-8 flex items-center sm:gap-8 gap-4 sm:pl-0 pl-2 text-[#007FFE]">
         <button
           onClick={() => setThemeDark(!themeDark)}
