@@ -4,8 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { LockSimple, User } from "phosphor-react";
 
-import digital from "../../public/DigitalAndPerson.png";
-import Image from "next/image";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
@@ -35,20 +33,6 @@ export default function Login() {
           to-cyan-500 text-zinc-900
           relative"
         >
-          {isMinScreen ? (
-            <div className="">
-              <Image
-                className="bg-cover"
-                src={digital}
-                height="400px"
-                layout="intrinsic"
-                alt="Uma digital e uma pessoa"
-              />
-            </div>
-          ) : (
-            ""
-          )}
-
           <form
             onSubmit={handleSubmit}
             autoComplete="on"
@@ -58,7 +42,7 @@ export default function Login() {
             sm:w-[420px]
             sm:flex-none
             sm:my-10  
-            sm:border-b-8 sm:border-r-4 sm:rounded-2xl sm:shadow-xl"
+            sm:border-b-8 sm:border-r-4 sm:rounded-2xl sm:shadow-2xl"
           >
             <h1 className="text-5xl font-semibold text-primary-500 text-center">
               Login
@@ -72,6 +56,7 @@ export default function Login() {
               value={email}
               setValue={setEmail}
             />
+
             <Input
               key="password"
               type="password"
@@ -80,13 +65,8 @@ export default function Login() {
               value={password}
               setValue={setPassword}
             />
-            <fieldset className="flex gap-1 justify-end items-center">
-              <input type="checkbox" name="" id="checkbox" />
-              <label htmlFor="checkbox">Mantenha conectado</label>
-            </fieldset>
-            <Button text="Entrar" type="submit" />
 
-            <small className="text-right text-sm font-medium text-primary-500">
+            <small className="-mt-4 mb-4 text-left text-sm font-medium text-primary-500">
               Esqueceu a senha?
               <Link href="/">
                 <a
@@ -100,6 +80,13 @@ export default function Login() {
                 </a>
               </Link>
             </small>
+
+            {/* <fieldset className="flex gap-2 justify-end items-center">
+              <input type="checkbox" name="" id="checkbox" />
+              <label htmlFor="checkbox">Mantenha conectado</label>
+            </fieldset> */}
+
+            <Button text="Entrar" type="submit" />
           </form>
         </main>
       </div>
