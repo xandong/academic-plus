@@ -29,12 +29,12 @@ export default function Input({
       ? "focus:border-primary-500"
       : type === "email"
       ? checkEmail
-        ? "focus:border-cancel-hover"
-        : "focus:border-success-hover"
+        ? "border-cancel-hover"
+        : "border-success-hover"
       : type === "password"
       ? checkPassword
-        ? "focus:border-cancel-hover"
-        : "focus:border-success-hover"
+        ? "border-cancel-hover"
+        : "border-success-hover"
       : "focus:border-success-hover";
 
   return (
