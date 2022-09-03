@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import { useState } from "react";
 import Link from "next/link";
+import { LockSimple, User } from "phosphor-react";
 
 import digital from "../../public/DigitalAndPerson.png";
 import Image from "next/image";
@@ -31,7 +32,7 @@ export default function Login() {
           
 
           bg-gradient-to-r from-blue-500
-          to-cyan-500 
+          to-cyan-500 text-zinc-900
           relative"
         >
           {isMinScreen ? (
@@ -67,6 +68,7 @@ export default function Login() {
               key="email"
               type="email"
               label="Email"
+              Icon={<User />}
               value={email}
               setValue={setEmail}
             />
@@ -74,6 +76,7 @@ export default function Login() {
               key="password"
               type="password"
               label="Senha"
+              Icon={<LockSimple />}
               value={password}
               setValue={setPassword}
             />
@@ -88,9 +91,9 @@ export default function Login() {
               <Link href="/">
                 <a
                   className="hover:text-primary-600 focus:outline-none
-              focus:text-primary-600  transition    
-              focus:border-b-2
-              focus:border-b-primary-600"
+                focus:text-primary-600  transition    
+                  focus:border-b-2
+                focus:border-b-primary-600"
                 >
                   {" "}
                   Clique aqui
