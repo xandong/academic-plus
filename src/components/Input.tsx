@@ -21,25 +21,11 @@ export default function Input({
   messageError,
   required = true,
 }: IInputProps) {
-  // const isValid = () => {
-  //   if (type === "password") {
-  //     if (value.length < 8 && value !== "") {
-  //       messageError = "A senha contém mais de 7 dígitos";
-  //       return "cancel-hover";
-  //     } else {
-  //       return "success-hover";
-  //     }
-  //   } else {
-  //     return "primary-500";
-  //   }
-  // };
-
   const isPasswordValid =
-    type === "password"
-      ? value.length < 8 && value !== ""
-        ? (messageError = "A senha contém mais de 7 dígitos") && "cancel-hover"
-        : "success-hover"
-      : "";
+    value !== "" && value.length < 8
+      ? // (messageError = "A senha contém mais de 7 dígitos") &&
+        "cancel-hover"
+      : "primary-500";
 
   return (
     <fieldset className="flex flex-col group relative">
@@ -57,8 +43,7 @@ export default function Input({
           Icon ? "pl-8" : ""
         } rounded bg-zinc-50 border-b-2 border-zinc-200 max-w-full
         hover:border-primary-500 transition-colors duration-200
-        focus:border-primary-500
-        focus:border-${isPasswordValid}
+        focus:border-${type === "password" ? isPasswordValid : "primary-500"}
         focus:outline-none`}
         required={required}
       />
