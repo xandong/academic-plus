@@ -28,9 +28,8 @@ export default function Header() {
     border: 1px solid rgba(209, 213, 219, 0.3);
 } */
     <header className="flex justify-between sm:justify-center items-center relative p-4 shadow border-b-2 bg-white border-zinc-100 z-10">
-      {/* {isMinScreen ? <Logo /> : <LogoP />} */}
-      {/* <Image src={isMinScreen ? logoPNG : logoPNG_P} alt="Logo" /> */}
       <Image src={logoPNG} alt="Academic Plus" />
+
       <div className="relative sm:absolute right-0 sm:right-8 flex items-center sm:gap-8 gap-4 sm:pl-0 pl-2 text-[#007FFE]">
         <button
           onClick={() => setThemeDark(!themeDark)}
