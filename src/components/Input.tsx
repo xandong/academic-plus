@@ -23,19 +23,21 @@ export default function Input({
 }: IInputProps) {
   const checkEmail = value.search(/\S+@\S+\.\S+/);
   const checkPassword = value.length < 8;
+  const success = "border-success-hover hover:none focus:none";
+  const error = "border-cancel-hover hover:none focus:none";
 
   const checkedType =
     value === ""
-      ? "focus:border-primary-500 hover:none"
+      ? "focus:border-primary-500 hover:border-primary-500"
       : type === "email"
       ? checkEmail
-        ? "border-cancel-hover hover:border-cancel-hover"
-        : "border-success-hover hover:border-success-hover"
+        ? error
+        : success
       : type === "password"
       ? checkPassword
-        ? "border-cancel-hover hover:border-cancel-hover"
-        : "border-success-hover hover:border-success-hover"
-      : "focus:border-success-hover";
+        ? error
+        : success
+      : "";
 
   return (
     <fieldset className="flex flex-col group relative">
@@ -50,8 +52,7 @@ export default function Input({
         type={type}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={`p-2 pl-8 rounded bg-zinc-50 border-b-2 border-zinc-200 max-w-full
-        hover:border-primary-500 transition-colors duration-200
+        className={`p-2 pl-8 rounded bg-zinc-50 border-b-2 border-zinc-200 max-w-full transition-colors duration-200
         ${checkedType}
         focus:outline-none`}
         required={required}
