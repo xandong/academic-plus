@@ -26,7 +26,7 @@ export default function Input({
 
   const checkedType =
     value === ""
-      ? "focus:border-primary-500"
+      ? "focus:border-primary-500 hover:none"
       : type === "email"
       ? checkEmail
         ? "border-cancel-hover hover:border-cancel-hover"

@@ -10,10 +10,27 @@ import Button from "../components/Button";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isMinScreen = false;
+  const [isValidInputs, setIsValidInputs] = useState(false);
 
-  function handleSubmit() {
-    return console.log("Enviado");
+  const isBrowser = () => typeof window !== "undefined";
+
+  let inputEmail, inputPassword, inputsIsValid;
+  if (isBrowser()) {
+    inputEmail = document
+      .querySelector("#email")
+      ?.classList.contains("border-success-hover");
+
+    inputPassword = document
+      .querySelector("#password")
+      ?.classList.contains("border-success-hover");
+
+    let aux = inputEmail || inputPassword ? true : false;
+
+    setIsValidInputs(aux);
+  }
+
+  function handleSubmit(e: { preventDefault: () => void }) {
+    e.preventDefault();
   }
 
   return (
@@ -50,6 +67,7 @@ export default function Login() {
 
             <Input
               key="email"
+              id="email"
               type="email"
               label="Email"
               Icon={<User />}
@@ -59,6 +77,7 @@ export default function Login() {
 
             <Input
               key="password"
+              id="password"
               type="password"
               label="Senha"
               Icon={<LockSimple />}
@@ -86,7 +105,7 @@ export default function Login() {
               <label htmlFor="checkbox">Mantenha conectado</label>
             </fieldset> */}
 
-            <Button text="Entrar" type="submit" />
+            <Button text="Entrar" type="submit" disabled={inputsIsValid} />
           </form>
         </main>
       </div>

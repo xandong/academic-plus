@@ -10,6 +10,7 @@ export default function Header() {
   const [toggleMenuUser, setToggleMenuUser] = useState(false);
 
   const isBrowser = () => typeof window !== "undefined";
+
   const isMinScreen = isBrowser()
     ? window.matchMedia("(min-width: 640px)").matches
     : true;

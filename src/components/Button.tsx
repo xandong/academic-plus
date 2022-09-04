@@ -3,12 +3,14 @@ interface IButtonProps {
   type?: "button" | "submit" | "reset";
   typeCTA?: "success" | "cancel";
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export default function Button({
   text,
   type = "button",
   typeCTA = "success",
+  disabled,
 }: IButtonProps) {
   const CTA =
     typeCTA === "success"
@@ -27,9 +29,12 @@ export default function Button({
 
   return (
     <button
-      className={`px-6 py-2 ${CTA} text-white font-medium rounded transition-colors
-      focus:outline-2`}
+      className={`px-6 py-2 text-white font-medium rounded transition-colors
+      focus:outline-2
+      ${disabled ? "cursor-not-allowed bg-success-disabled hover:none" : CTA}}
+      `}
       type={type}
+      disabled={disabled}
     >
       {text}
     </button>
