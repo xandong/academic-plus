@@ -23,13 +23,11 @@ export default function Login() {
       <div className="min-w-screen min-h-screen flex flex-col">
         <Header />
         <main
-          className="flex-1 md:px-40 flex 
-          flex-col
-          justify-center items-center
-          
-
-          bg-gradient-to-r from-blue-500
-          to-cyan-500 text-zinc-900
+          className="flex-1 md:px-40 flex flex-col
+          justify-center items-center         
+          bg-gradient-to-r
+          dark:bg-gradient-to-t from-blue-500  to-cyan-500
+          dark:from-primary-900 dark:to-zinc-800
           relative"
         >
           <form
@@ -38,14 +36,16 @@ export default function Login() {
             id="form"
             className="flex-1 flex flex-col gap-6 h-fit sm:p-12 py-12 px-8 w-full 
             bg-white
+            dark:bg-zinc-700
+            text-primary-500 
+            dark:text-primary-200
             sm:w-[420px]
             sm:flex-none
             sm:my-10  
-            sm:border-b-8 sm:border-r-4 sm:rounded-2xl sm:shadow-2xl"
+            sm:border-b-8 sm:border-r-4 sm:rounded-2xl sm:shadow-2xl
+            sm:dark:border-zinc-600"
           >
-            <h1 className="text-5xl font-semibold text-primary-500 text-center">
-              Login
-            </h1>
+            <h1 className="text-5xl font-semibold text-center">Login</h1>
 
             <Input
               key="email"
@@ -65,25 +65,24 @@ export default function Login() {
               setValue={setPassword}
             />
 
-            <small className="-mt-4 mb-4 text-left text-sm font-medium text-primary-500">
+            <small className="-mt-4 mb-4 text-left text-sm font-medium">
               Esqueceu a senha?
               <Link href="/">
                 <a
-                  className="hover:text-primary-600 focus:outline-none
-                focus:text-primary-600  transition    
-                  focus:border-b-2
-                focus:border-b-primary-600"
+                  className="hover:text-primary-600
+                  dark:hover:text-primary-100 focus:outline-none
+                focus:text-primary-600
+                dark:focus:text-primary-100
+                focus:border-b-2
+                focus:border-b-primary-600
+                dark:focus:border-primary-200
+                transition  "
                 >
                   {" "}
                   Clique aqui
                 </a>
               </Link>
             </small>
-
-            {/* <fieldset className="flex gap-2 justify-end items-center">
-              <input type="checkbox" name="" id="checkbox" />
-              <label htmlFor="checkbox">Mantenha conectado</label>
-            </fieldset> */}
 
             <Button text="Entrar" type="submit" />
           </form>
