@@ -10,7 +10,6 @@ import Button from "../components/Button";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isMinScreen = false;
 
   function handleSubmit() {
     return console.log("Enviado");
