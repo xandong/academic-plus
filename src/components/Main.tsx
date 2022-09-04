@@ -9,7 +9,7 @@ export default function Main({ children }: IMainProps) {
     <main
       className="min-h-[90vh] flex-1
       flex flex-col justify-center items-center gap-10 
-      py-10 md:px-40 sm:px-8 bg-white
+      py-10 md:px-40 sm:px-8 bg-white dark:bg-black
       relative"
     >
       {children}

@@ -1,18 +1,43 @@
-import { MoonStars, Sun, User } from "phosphor-react";
-import { useState } from "react";
+import { MoonStars, Sun, TextAlignJustify, User } from "phosphor-react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import logoPNG from "../../public/logo.png";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+
+const hour = new Date().getHours();
 
 export default function Header() {
-  const [themeDark, setThemeDark] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
   const [user, setUser] = useState("Alexandre");
   const [toggleMenuUser, setToggleMenuUser] = useState(false);
 
-  const isBrowser = () => typeof window !== "undefined";
-  const isMinScreen = isBrowser()
-    ? window.matchMedia("(min-width: 640px)").matches
-    : true;
+  useEffect(() => {
+    function checkHour() {
+      if (theme === "system") {
+        if (hour >= 18 && hour <= 6) {
+          localStorage.setItem("theme", "dark");
+          return setTheme("dark");
+        } else {
+          localStorage.setItem("theme", "light");
+          return setTheme("light");
+        }
+      }
+    }
+    checkHour();
+
+    setMounted(true);
+  }, [setTheme, theme]);
+
+  if (!mounted) return null;
+
+  function isDark() {
+    if (theme) return theme === "dark";
+  }
+
+  // const isBrowser = () => typeof window !== "undefined";
 
   function disconnected() {
     setUser("");
@@ -20,42 +45,36 @@ export default function Header() {
   }
 
   return (
-    /* .card {
-    backdrop-filter: blur(16px) saturate(149%);
-    -webkit-backdrop-filter: blur(16px) saturate(149%);
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-} */
-    <header className="flex justify-between sm:justify-center items-center relative p-4 shadow border-b-2 bg-white border-zinc-100 z-10">
+    <header
+      className="flex justify-between sm:justify-center items-center p-4 shadow border-b-2
+    bg-white dark:bg-black border-zinc-100 dark:border-zinc-700 z-10 relative"
+    >
       <Image src={logoPNG} alt="Academic Plus" />
 
-      <div className="relative sm:absolute right-0 sm:right-8 flex items-center sm:gap-8 gap-4 sm:pl-0 pl-2 text-[#007FFE]">
+      <div className="relative sm:absolute right-0 sm:right-8 flex items-center sm:gap-8 gap-4 sm:pl-0 pl-2 text-primary-500 dark:text-primary-200">
         <button
-          onClick={() => setThemeDark(!themeDark)}
-          className="p-1 bg-zinc-100 shadow rounded-full hover:scale-110 hover:shadow-md
-          focus:scale-110
-          focus:outline-zinc-300 transition-colors"
+          onClick={() => setTheme(isDark() ? "light" : "dark")}
+          className="p-1 bg-zinc-100 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
+          focus:scale-110 transition-colors"
+          aria-label="Toggle Theme"
         >
-          {themeDark ? <Sun size={24} /> : <MoonStars size={24} />}
+          {theme === "dark" ? <Sun size={24} /> : <MoonStars size={24} />}
         </button>
 
         {user ? (
           <div className="relative">
             <button
               onClick={() => setToggleMenuUser(!toggleMenuUser)}
-              className="p-1 bg-zinc-100 shadow rounded-full hover:scale-110 hover:shadow-md
-              focus:scale-110
-              focus:outline-zinc-300 transition-colors"
+              className="p-1 bg-zinc-100 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
+              focus:scale-110 transition-colors"
             >
               <div className="hover:scale-110 transition-all">
-                {/*{ user.photo ? <img src={user.photo}> :  }*/}
                 <User size={28} />
               </div>
             </button>
             {toggleMenuUser ? (
-              <ul className="absolute top-12 right-0 flex flex-col gap-4 items-center rounded p-4 bg-zinc-50 border border-zinc-200 scale-100">
-                <li className="px-4 flex-1 hover:shadow-[#007FFE]">
+              <ul className="absolute top-12 right-0 flex flex-col gap-4 items-center rounded p-4 bg-zinc-50 dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 scale-100">
+                <li className="hover:border-b hover:-mb-px">
                   <Link href="/">
                     <a>Perfil</a>
                   </Link>

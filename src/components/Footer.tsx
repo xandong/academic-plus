@@ -16,9 +16,10 @@ export default function Footer() {
           <ArrowUp
             size={32}
             weight="bold"
-            className="p-1 bg-zinc-800 text-zinc-50 border-zinc-800 border-2
-            hover:p-px hover:shadow-lg hover:bg-zinc-50 hover:text-zinc-800 
-            shadow-md rounded-md
+            className="p-1
+            bg-zinc-200 dark:bg-zinc-600 dark:hover:bg-zinc-500 text-zinc-900 hover:text-zinc-800  dark:text-zinc-50
+            border-2 hover:border-zinc-200 dark:border-none
+            hover:p-[2px] hover:shadow-lg shadow-md rounded-md hover:shadow-zinc-300 hover:bg-zinc-50 dark:hover:shadow-zinc-700
             animate-bounce transition-all duration-500"
           />
         </a>
