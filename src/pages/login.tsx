@@ -51,7 +51,7 @@ export default function Login() {
               key="email"
               type="email"
               label="Email"
-              Icon={<User />}
+              Icon={<User weight="bold" />}
               value={email}
               setValue={setEmail}
             />
@@ -60,7 +60,7 @@ export default function Login() {
               key="password"
               type="password"
               label="Senha"
-              Icon={<LockSimple />}
+              Icon={<LockSimple weight="bold" />}
               value={password}
               setValue={setPassword}
             />
