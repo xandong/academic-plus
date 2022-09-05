@@ -37,8 +37,6 @@ export default function Header() {
     if (theme) return theme === "dark";
   }
 
-  // const isBrowser = () => typeof window !== "undefined";
-
   function disconnected() {
     setUser("");
     console.log("Desconectado");
@@ -51,7 +49,7 @@ export default function Header() {
     >
       <Image src={logoPNG} alt="Academic Plus" />
 
-      <div className="relative sm:absolute right-0 sm:right-8 flex items-center sm:gap-8 gap-4 sm:pl-0 pl-2 text-primary-500 dark:text-primary-200">
+      <div className="relative sm:absolute right-0 sm:right-8 flex items-center md:gap-8 sm:gap-4 gap-2 sm:pl-0 pl-2 text-primary-500 dark:text-primary-200">
         <button
           onClick={() => setTheme(isDark() ? "light" : "dark")}
           className="p-1 bg-zinc-100 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
