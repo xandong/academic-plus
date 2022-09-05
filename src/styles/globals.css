@@ -19,16 +19,14 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  background: rgba(0, 0, 0, 0);
+  @apply w-2;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
-}
+/* ::-webkit-scrollbar-track {
+} */
 
 ::-webkit-scrollbar-thumb {
   @apply bg-primary-500 dark:bg-primary-200 border
-  border-l-2 border-r-2 border-r-white border-l-white
+  m-2 border-r-white border-l-white
   rounded;
 }
