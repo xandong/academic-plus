@@ -23,7 +23,7 @@ export default function PageIndex() {
                 title={e.title}
                 img={e.img}
                 rote={e.rote}
-                alt=""
+                alt={e.rote}
               />
             ))}
           </ul>
