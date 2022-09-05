@@ -4,14 +4,21 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 
 export default function PageIndex() {
+  const name = "Alexandre";
   return (
     <>
       <Head>
         <title>Academic Plus</title>
       </Head>
       <Header />
-      <Main>
-        <h1>Academic Plus</h1>
+      <Main title={name}>
+        <section>
+          <ul>
+            <li>Ola</li>
+            <li>Ola</li>
+            <li>Ola</li>
+          </ul>
+        </section>
       </Main>
       <Footer />
     </>
