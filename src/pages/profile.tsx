@@ -10,7 +10,7 @@ export default function Profile() {
         <title>A+: Perfil 💁</title>
       </Head>
       <Header />
-      <Main>
+      <Main title="">
         <div className="container">
           <p>
             The

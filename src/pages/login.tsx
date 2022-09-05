@@ -27,7 +27,7 @@ export default function Login() {
           justify-center items-center         
           bg-gradient-to-r
           dark:bg-gradient-to-t from-blue-500  to-cyan-500
-          dark:from-primary-900 dark:to-zinc-800
+          dark:from-primary-900 dark:to-black
           relative"
         >
           <form
@@ -36,14 +36,14 @@ export default function Login() {
             id="form"
             className="flex-1 flex flex-col gap-6 h-fit sm:p-12 py-12 px-8 w-full 
             bg-white
-            dark:bg-zinc-700
+            dark:bg-black
             text-primary-500 
             dark:text-primary-200
             sm:w-[420px]
             sm:flex-none
             sm:my-10  
             sm:border-b-8 sm:border-r-4 sm:rounded-2xl sm:shadow-2xl
-            sm:dark:border-zinc-600"
+            sm:dark:border-zinc-800"
           >
             <h1 className="text-5xl font-semibold text-center">Login</h1>
 
