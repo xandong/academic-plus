@@ -47,7 +47,11 @@ export default function Header() {
       className="flex justify-between sm:justify-center items-center p-4 shadow border-b-2
     bg-white dark:bg-black border-zinc-100 dark:border-zinc-700 z-10 relative"
     >
-      <Image src={logoPNG} alt="Academic Plus" />
+      <Link href="/">
+        <a>
+          <Image src={logoPNG} alt="Academic Plus" />
+        </a>
+      </Link>
 
       <div className="relative sm:absolute right-0 sm:right-8 flex items-center md:gap-8 sm:gap-4 gap-2 sm:pl-0 pl-2 text-primary-500 dark:text-primary-200">
         <button
@@ -73,12 +77,12 @@ export default function Header() {
             {toggleMenuUser ? (
               <ul className="absolute top-12 right-0 flex flex-col gap-4 items-center rounded p-4 bg-zinc-50 dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 scale-100">
                 <li className="hover:border-b hover:-mb-px">
-                  <Link href="/">
+                  <Link href="/profile">
                     <a>Perfil</a>
                   </Link>
                 </li>
                 <li className="flex-1">
-                  <Link href="/">
+                  <Link href="/settings">
                     <a>Configurações</a>
                   </Link>
                 </li>
