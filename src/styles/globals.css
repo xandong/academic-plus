@@ -22,11 +22,11 @@ body {
   @apply w-2;
 }
 
-/* ::-webkit-scrollbar-track {
-} */
+::-webkit-scrollbar-track {
+  @apply transition-colors;
+}
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-500 dark:bg-primary-200 border
-  m-2 border-r-white border-l-white
+  @apply bg-zinc-300 dark:bg-zinc-600
   rounded;
 }
