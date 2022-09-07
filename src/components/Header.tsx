@@ -1,7 +1,6 @@
-import { MoonStars, Sun, TextAlignJustify, User } from "phosphor-react";
+import { MoonStars, Sun, User } from "phosphor-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import logoPNG from "../../public/logo.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 
@@ -10,7 +9,6 @@ const hour = new Date().getHours();
 export default function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-
   const [user, setUser] = useState("Alexandre");
   const [toggleMenuUser, setToggleMenuUser] = useState(false);
 
@@ -37,6 +35,15 @@ export default function Header() {
     if (theme) return theme === "dark";
   }
 
+  const isBrowser = typeof window !== "undefined";
+
+  const isMinWidth = () => {
+    if (isBrowser) return window.matchMedia("(min-width: 640px)").matches;
+    return false;
+  };
+
+  console.log(isMinWidth());
+
   function disconnected() {
     setUser("");
     console.log("Desconectado");
@@ -44,12 +51,26 @@ export default function Header() {
 
   return (
     <header
-      className="flex justify-between sm:justify-center items-center p-4 shadow border-b-2
-    bg-white dark:bg-black border-zinc-100 dark:border-zinc-700 z-10 relative"
+      className={`card-glass fixed top-0 w-screen flex justify-between sm:justify-center items-center p-4 shadow-md border-b-2
+    bg-white dark:bg-black border-zinc-100 dark:border-zinc-800 z-10`}
     >
       <Link href="/">
         <a>
-          <Image src={logoPNG} alt="Academic Plus" />
+          {isMinWidth() ? (
+            <Image
+              src="/logo.svg"
+              alt="Academic Plus"
+              width="566"
+              height="32"
+            />
+          ) : (
+            <Image
+              src="/logoP.svg"
+              alt="Academic Plus"
+              width="40"
+              height="40"
+            />
+          )}
         </a>
       </Link>
 
