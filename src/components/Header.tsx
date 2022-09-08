@@ -76,7 +76,7 @@ export default function Header() {
       <div className="relative sm:absolute right-0 sm:right-8 flex items-center md:gap-8 sm:gap-4 gap-2 sm:pl-0 pl-2 text-primary-500 dark:text-primary-200">
         <button
           onClick={() => setTheme(isDark() ? "light" : "dark")}
-          className="p-1 bg-white dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
+          className="p-1 bg-white/80 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
           focus:scale-110 transition-colors"
           aria-label="Toggle Theme"
         >
@@ -87,7 +87,7 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setToggleMenuUser(!toggleMenuUser)}
-              className="p-1 card-glass dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
+              className="p-1 bg-white/80 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
               focus:scale-110 transition-colors"
             >
               <div className="hover:scale-110 transition-all">
