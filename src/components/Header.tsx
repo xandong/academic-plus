@@ -28,7 +28,6 @@ export default function Header() {
 
     setMounted(true);
   }, [setTheme, theme]);
-
   if (!mounted) return null;
 
   function isDark() {
@@ -77,7 +76,7 @@ export default function Header() {
       <div className="relative sm:absolute right-0 sm:right-8 flex items-center md:gap-8 sm:gap-4 gap-2 sm:pl-0 pl-2 text-primary-500 dark:text-primary-200">
         <button
           onClick={() => setTheme(isDark() ? "light" : "dark")}
-          className="p-1 bg-zinc-100 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
+          className="p-1 bg-white dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
           focus:scale-110 transition-colors"
           aria-label="Toggle Theme"
         >
@@ -88,7 +87,7 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setToggleMenuUser(!toggleMenuUser)}
-              className="p-1 bg-zinc-100 dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
+              className="p-1 card-glass dark:bg-zinc-700 shadow rounded-full hover:scale-110 hover:shadow-md
               focus:scale-110 transition-colors"
             >
               <div className="hover:scale-110 transition-all">
@@ -96,18 +95,18 @@ export default function Header() {
               </div>
             </button>
             {toggleMenuUser ? (
-              <ul className="absolute top-12 right-0 flex flex-col gap-4 items-center rounded p-4 bg-zinc-50 dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 scale-100">
-                <li className="hover:border-b hover:-mb-px">
+              <ul className="absolute top-12 right-0 flex flex-col gap-4 items-center rounded p-4 bg-white/95 dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 scale-100">
+                <li className="hover:border-b border-primary-500 dark:border-primary-200 hover:-mb-px">
                   <Link href="/profile">
                     <a>Perfil</a>
                   </Link>
                 </li>
-                <li className="flex-1">
+                <li className="hover:border-b border-primary-500 dark:border-primary-200 hover:-mb-px">
                   <Link href="/settings">
                     <a>Configurações</a>
                   </Link>
                 </li>
-                <li>
+                <li className="hover:border-b border-primary-500 dark:border-primary-200 hover:-mb-px">
                   <Link href="/">
                     <button onClick={() => disconnected()}>Sair</button>
                   </Link>

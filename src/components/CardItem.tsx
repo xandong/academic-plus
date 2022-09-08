@@ -26,7 +26,9 @@ export default function CardItem({
           border dark:border-zinc-600 shadow-md hover:shadow-xl focus:shadow-xl rounded-lg 
         hover:scale-105 focus:scale-105 outline-none focus:outline-zinc-300 dark:focus:outline-zinc-500 transition-all duration-300"
         >
-          <Image src={img} alt={alt} width="183px" height="96px" />
+          <div className="group-hover:scale-105 group-focus:scale-110 transition-transform duration-[400ms]">
+            <Image src={img} alt={alt} width="183px" height="96px" />
+          </div>
           <h2 className="text-xl text-center font-semibold px-2 transition-all ">
             {title}
           </h2>
