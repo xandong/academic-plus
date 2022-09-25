@@ -34,7 +34,7 @@ export default function Login() {
             onSubmit={handleSubmit}
             autoComplete="on"
             id="form"
-            className="flex-1 flex flex-col gap-6 h-fit sm:p-12 py-12 px-8 w-full 
+            className="flex-1 flex flex-col gap-6 h-fit sm:p-12 py-32 px-8 w-full 
             bg-white
             dark:bg-black
             text-primary-500 
